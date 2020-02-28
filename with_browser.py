@@ -20,9 +20,9 @@ time.sleep(2)
 table = driver.find_element_by_xpath('/html/body/div[1]/div[6]/div[1]/section/div[4]/div[1]/div/table/tbody')
 print(table)
 rows = table.find_elements_by_tag_name('tr')
-print(len(rows))
 
-for row in rows:
+
+for index, row in enumerate(rows):
     cells = row.find_elements_by_tag_name('td')
     for cell in cells:
         print(cell.text)

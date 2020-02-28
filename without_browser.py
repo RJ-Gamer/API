@@ -22,7 +22,16 @@ response = driver.execute_script('return fetchCINData()')
 time.sleep(2)
 table = driver.find_element_by_xpath('/html/body/div[1]/div[6]/div[1]/section/div[4]/div[1]/div/table/tbody')
 rows = table.find_elements_by_tag_name('tr')
-print(len(rows))
-for row in rows:
+# print(rows[5].text)
+for index, row in enumerate(rows):
     cells = list(row.find_elements_by_tag_name('td'))
-    print(cells[0].text)
+    print("[{0}] -- {1}".format(index+1, cells[0].text))
+
+
+company_choice = int(input("Enter the number beetween 1 and {0} \n".format(len(rows))))
+company = list((rows[company_choice-1].text).split(' '))
+com = ''
+for strng in company[:-1]:
+    com = com + strng + " "
+
+print("You selected : {0}".format(com))
