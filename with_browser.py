@@ -14,4 +14,15 @@ time.sleep(5)
 search_company_name_input = driver.find_element_by_id('searchcompanyname')
 search_company_name_input.send_keys('zapfin')
 response = driver.execute_script('return fetchCINData()')
-# table = driver.execute_script('showCINList()')
+
+time.sleep(2)
+
+table = driver.find_element_by_xpath('/html/body/div[1]/div[6]/div[1]/section/div[4]/div[1]/div/table/tbody')
+print(table)
+rows = table.find_elements_by_tag_name('tr')
+print(len(rows))
+
+for row in rows:
+    cells = row.find_elements_by_tag_name('td')
+    for cell in cells:
+        print(cell.text)
