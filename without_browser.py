@@ -9,7 +9,7 @@ options = webdriver.ChromeOptions()
 options.add_argument('headless')
 driver = webdriver.Chrome("/usr/bin/chromedriver", options=options)
 
-urlmca = 'http://www.mca.gov.in/mcafoportal/viewCompanyMasterData.do'
+urlmca = ''
 
 driver.get(urlmca)
 search_btn = driver.find_element_by_id('imgSearchIcon')
